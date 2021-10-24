@@ -29,7 +29,7 @@ namespace Business.Concrete
             _blogDal.Delete(entity);
         }
 
-        public List<Blog> GetAll(Blog Entity)
+        public List<Blog> GetAll()
         {
             return _blogDal.GetAll();
         }

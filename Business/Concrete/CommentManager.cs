@@ -29,7 +29,7 @@ namespace Business.Concrete
             _commentDal.Delete(entity);
         }
 
-        public List<Comment> GetAll(Comment Entity)
+        public List<Comment> GetAll()
         {
             return _commentDal.GetAll();
         }

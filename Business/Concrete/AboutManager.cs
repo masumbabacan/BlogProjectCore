@@ -29,7 +29,7 @@ namespace Business.Concrete
             _aboutDal.Delete(entity);
         }
 
-        public List<About> GetAll(About Entity)
+        public List<About> GetAll()
         {
             return _aboutDal.GetAll();
         }
