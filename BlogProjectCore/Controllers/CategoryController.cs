@@ -11,10 +11,10 @@ namespace BlogProjectCore.Controllers
     public class CategoryController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-        public IActionResult Index()
+        public IActionResult CategoryGetAll()
         {
             var getAllCategories = categoryManager.GetAll();
-            return View();
+            return View(getAllCategories);
         }
     }
 }
