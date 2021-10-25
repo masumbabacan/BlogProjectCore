@@ -34,6 +34,11 @@ namespace Business.Concrete
             return _commentDal.GetAll();
         }
 
+        public List<Comment> GetAllCommentByBlog(int id)
+        {
+            return _commentDal.GetAll(x => x.BlogId == id);
+        }
+
         public Comment GetById(int id)
         {
             return _commentDal.Get(c => c.CommentId == id);
