@@ -20,10 +20,10 @@ namespace BlogProjectCore.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult SubscribeMail(NewsLetter newsLetter)
+        public IActionResult SubscribeMail(NewsLetter newsLetter)
         {
             newsLetterManager.Add(newsLetter);
-            return PartialView();
+            return RedirectToAction("BlogGetAllList", "Blog");
         }
     }
 }

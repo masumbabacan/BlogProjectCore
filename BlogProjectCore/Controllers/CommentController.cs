@@ -23,10 +23,10 @@ namespace BlogProjectCore.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult AddCommentPartial(Comment comment)
+        public IActionResult AddCommentPartial(Comment comment)
         {
             commentManager.Add(comment);
-            return PartialView();
+            return RedirectToAction("BlogGetAllList", "Blog");
         }
     }
 }
