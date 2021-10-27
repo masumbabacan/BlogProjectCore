@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IBlogService : IGenericService<Blog>
+    public interface INewsLetterService : IGenericService<NewsLetter>
     {
-        List<Blog> GetBlogListWithCategory();
-        List<Blog> GetBlogByWriter(int id);
     }
 }

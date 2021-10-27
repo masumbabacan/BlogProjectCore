@@ -21,6 +21,9 @@ namespace Business.Concrete
 
         public void Add(Comment entity)
         {
+            entity.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            entity.CommentStatus = true;
+            entity.BlogId = 2;
             _commentDal.Add(entity);
         }
 

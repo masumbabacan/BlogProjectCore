@@ -1,0 +1,60 @@
+﻿@model Entities.Concrete.Writer
+@{
+    ViewData["Title"] = "UserRegister";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Kayıt Ol</h3>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+
+               {
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Ad - Soyad</label>
+                            @Html.TextBoxFor(x => x.WriterName, new {@class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterName,"", new {@class = "text-danger",@style="font-size:12px" })
+                            @*<input type="text" class="form-control" id="validationDefault01" placeholder="" required="">*@
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Email</label>
+                            @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger", @style = "font-size:12px" })
+                            @*<input type="text" class="form-control" id="validationDefault02" placeholder="" required="">*@
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">Şifre</label>
+                            @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger", @style = "font-size:12px" })
+                        </div>
+                        @*<div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Şifreyi Onayla</label>
+                            @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger", @style = "font-size:12px" })
+                        </div>*@
+
+                    </div>
+
+                <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+                }
+                <p>
+                    <a href="#" id="btn1">Sözleşme Kurallarını Okudum ve Onaylıyorum.</a>
+                </p>
+               
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            swal("SÖZLEŞME KURALLARI :   " +
+                "işbu sözleşme taraflara sözleşme konusu site ile ilgili hak ve yükümlülükler yükler ve taraflar işbu sözleşmeyi kabul ettiklerinde bahsi geçen hak ve yükümlülükleri eksiksiz, doğru, zamanında, işbu sözleşmede talep edilen şartlar dâhilinde yerine getireceklerini beyan ederler. Kullanıcı, site içindeki faaliyetlerinde, sitenin herhangi bir bölümünde veya iletişimlerinde genel ahlaka ve adaba aykırı, kanuna aykırı, 3. Kişilerin haklarını zedeleyen, yanıltıcı, saldırgan, müstehcen, pornografik, kişilik haklarını zedeleyen, telif haklarına aykırı, yasa dışı faaliyetleri teşvik eden içerikler üretmeyeceğini, paylaşmayacağını kabul eder. Aksi halde oluşacak zarardan tamamen kendisi sorumludur ve bu durumda ‘Site’ yetkilileri, bu tür hesapları askıya alabilir, sona erdirebilir, yasal süreç başlatma hakkını saklı tutar. Bu sebeple yargı mercilerinden etkinlik veya kullanıcı hesapları ile ilgili bilgi talepleri gelirse paylaşma hakkını saklı tutar.işbu sözleşme taraflara sözleşme konusu site ile ilgili hak ve yükümlülükler yükler ve taraflar işbu sözleşmeyi kabul ettiklerinde bahsi geçen hak ve yükümlülükleri eksiksiz, doğru, zamanında, işbu sözleşmede talep edilen şartlar dâhilinde yerine getireceklerini beyan ederler. Kullanıcı, site içindeki faaliyetlerinde, sitenin herhangi bir bölümünde veya iletişimlerinde genel ahlaka ve adaba aykırı, kanuna aykırı, 3. Kişilerin haklarını zedeleyen, yanıltıcı, saldırgan, müstehcen, pornografik, kişilik haklarını zedeleyen, telif haklarına aykırı, yasa dışı faaliyetleri teşvik eden içerikler üretmeyeceğini, paylaşmayacağını kabul eder. Aksi halde oluşacak zarardan tamamen kendisi sorumludur ve bu durumda ‘Site’ yetkilileri, bu tür hesapları askıya alabilir, sona erdirebilir, yasal süreç başlatma hakkını saklı tutar. Bu sebeple yargı mercilerinden etkinlik veya kullanıcı hesapları ile ilgili bilgi talepleri gelirse paylaşma hakkını saklı tutar.işbu sözleşme taraflara sözleşme konusu site ile ilgili hak ve yükümlülükler yükler ve taraflar işbu sözleşmeyi kabul ettiklerinde bahsi geçen hak ve yükümlülükleri eksiksiz, doğru, zamanında, işbu sözleşmede talep edilen şartlar dâhilinde yerine getireceklerini beyan ederler. Kullanıcı, site içindeki faaliyetlerinde, sitenin herhangi bir bölümünde veya iletişimlerinde genel ahlaka ve adaba aykırı, kanuna aykırı, 3. Kişilerin haklarını zedeleyen, yanıltıcı, saldırgan, müstehcen, pornografik, kişilik haklarını zedeleyen, telif haklarına aykırı, yasa dışı faaliyetleri teşvik eden içerikler üretmeyeceğini, paylaşmayacağını kabul eder. Aksi halde oluşacak zarardan tamamen kendisi sorumludur ve bu durumda ‘Site’ yetkilileri, bu tür hesapları askıya alabilir, sona erdirebilir, yasal süreç başlatma hakkını saklı tutar. Bu sebeple yargı mercilerinden etkinlik veya kullanıcı hesapları ile ilgili bilgi talepleri gelirse paylaşma hakkını saklı tutar.")
+        });
+    </script>
+</section>

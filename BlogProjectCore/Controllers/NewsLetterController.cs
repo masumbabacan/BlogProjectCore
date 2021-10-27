@@ -9,23 +9,20 @@ using System.Threading.Tasks;
 
 namespace BlogProjectCore.Controllers
 {
-    public class CommentController : Controller
+    public class NewsLetterController : Controller
     {
-        CommentManager commentManager = new CommentManager(new EfCommentDal());
-        public IActionResult Index()
-        {
-            return View();
-        }
+        NewsLetterManager newsLetterManager = new NewsLetterManager(new EfNewsLetterDal());
+
         [HttpGet]
-        public PartialViewResult AddCommentPartial()
+        public PartialViewResult SubscribeMail()
         {
             return PartialView();
         }
 
         [HttpPost]
-        public PartialViewResult AddCommentPartial(Comment comment)
+        public PartialViewResult SubscribeMail(NewsLetter newsLetter)
         {
-            commentManager.Add(comment);
+            newsLetterManager.Add(newsLetter);
             return PartialView();
         }
     }
