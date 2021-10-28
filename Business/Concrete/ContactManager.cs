@@ -21,6 +21,8 @@ namespace Business.Concrete
 
         public void Add(Contact entity)
         {
+            entity.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            entity.ContactStatus = true;
             _contactDal.Add(entity);
         }
 

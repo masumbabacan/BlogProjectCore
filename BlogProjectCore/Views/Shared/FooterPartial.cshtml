@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
                 <h3>Hakkımızda</h3>
-                <p>Hakkımızda söyleyenecek çok şey var lakin kelimeler buna yetmeyecektir, o yüzden sitemizde biraz dolanın kendinizi kanıtlayın ve bizde size kendimizi tanıtalım!</p>
+                <p>1998 yılında "En yeni iletişim ve bilgisayar teknolojilerini kullanarak müşterilerine dünya standartlarında çözümler sunmak" ilkesiyle yola çıkan masumbiriş.net, geçen 16 yıllık süreçte Dünya ve Türkiye’ye, en büyük domain ve hosting firmalarından biri olmayı başarmıştır. 2008 yılında alan adları standartlarını belirleyen ve denetleyen tek otorite ICANN'e akredite olan masumbiriş.net, 2010 yılından beri Türkiye'nin en büyük 500 bilişim şirketi arasında...</p>
                 <div class="read">
-                    <a href="single.html" class="btn btn-primary read-m">Devamını oku</a>
+                    <a href="/About/Index/" class="btn btn-primary read-m">Devamını oku</a>
                 </div>
             </div>
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
@@ -73,17 +73,7 @@
             </div>
             <!-- subscribe -->
             <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
-                <h2>Signup to our newsletter</h2>
-                <div class="subscribe-main text-left">
-                    <div class="subscribe-form">
-                        <form action="#" method="post" class="subscribe_form">
-                            <input class="form-control" type="email" placeholder="Enter your email..." required="">
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
-                        </form>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <p>We respect your privacy.No spam ever!</p>
-                </div>
+                @await Html.PartialAsync("~/Views/NewsLetter/SubscribeMail.cshtml")
                 <!-- //subscribe -->
             </div>
         </div>

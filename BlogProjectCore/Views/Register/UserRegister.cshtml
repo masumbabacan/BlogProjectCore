@@ -11,7 +11,7 @@
         <h3 class="tittle">Kayıt Ol</h3>
         <div class="inner-sec">
             <div class="login p-5 bg-light mx-auto mw-100">
-
+                @using (Html.BeginForm("UserRegister","Register",FormMethod.Post))
                {
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
