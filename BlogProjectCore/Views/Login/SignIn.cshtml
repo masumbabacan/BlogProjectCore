@@ -1,9 +1,10 @@
-﻿@{
+﻿@model Entities.Concrete.Writer
+@{
     ViewData["Title"] = "SignIn";
     Layout = "~/Views/Shared/UserLayout.cshtml";
 }
 
-<section class="main-content-w3layouts-agileits">
+@*<section class="main-content-w3layouts-agileits">
     <div class="container">
         <h3 class="tittle">Yazar Girişi</h3>
         <div class="row inner-sec">
@@ -31,26 +32,15 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@
 
 
-
-
-
-
-
-
-
-
-
-
-
-@*<section class="main-content-w3layouts-agileits">
+<section class="main-content-w3layouts-agileits">
     <div class="container">
         <h3 class="tittle">Giriş Yap</h3>
         <div class="row inner-sec">
             <div class="login p-5 bg-light mx-auto mw-100">
-                @using (Html.BeginForm("Login", "SignIn", FormMethod.Post))
+                @using (Html.BeginForm("SignIn", "Login", FormMethod.Post))
                 {
                 <div class="form-group">
                     <label for="exampleInputEmail1 mb-2">Email</label>
@@ -73,6 +63,6 @@
             </div>
         </div>
     </div>
-</section>*@
+</section>
 
 

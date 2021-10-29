@@ -13,7 +13,7 @@ namespace BlogProjectCore.Controllers
     public class BlogController : Controller
     {
         BlogManager blogManager = new BlogManager(new EfBlogDal());
-
+        [AllowAnonymous]
         public IActionResult BlogGetAllList()
         {
             var getAllBlogs = blogManager.GetBlogListWithCategory();

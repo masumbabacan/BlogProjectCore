@@ -9,8 +9,26 @@ namespace BlogProjectCore.Controllers
 {
     public class WriterController : Controller
     {
-        [AllowAnonymous]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Test()
+        {
+            return View();
+        }
+
+
+
+
+        //Partial Views
+        public IActionResult WriterNavbarPartial()
+        {
+            return View();
+        }
+
+        public IActionResult WriterFooterPartial()
         {
             return View();
         }

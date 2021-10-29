@@ -1,12 +1,14 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace BlogProjectCore.Controllers
@@ -16,22 +18,25 @@ namespace BlogProjectCore.Controllers
     {
         AuthManager authManager = new AuthManager(new EfWriterDal());
         [AllowAnonymous]
-        [HttpGet]
         public IActionResult SignIn()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult SignIn(Writer writer)
+        [AllowAnonymous]
+        public async Task<IActionResult> SignIn(Writer writer)
         {
-            // var result = authManager.GetWriter(writer.WriterMail, writer.WriterPassword);
-
-            Context context = new Context();
-            var result = context.Writers.FirstOrDefault(x=>x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+             var result = authManager.GetWriter(writer.WriterMail, writer.WriterPassword);
 
             if (result != null)
             {
-                HttpContext.Session.SetString("username",writer.WriterMail);
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name,writer.WriterMail)
+                };
+                var userIdentity = new ClaimsIdentity(claims, "a");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                await HttpContext.SignInAsync(principal);
                 return RedirectToAction("Index", "Writer");
             }
             else
@@ -41,3 +46,29 @@ namespace BlogProjectCore.Controllers
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//SESSİON İLE OTURUM AÇMA
+
+//if (result != null)
+//{
+//    HttpContext.Session.SetString("username",writer.WriterMail);
+//    return RedirectToAction("Index", "Writer");
+//}
+//else
+//{
+//    return View();
+//}

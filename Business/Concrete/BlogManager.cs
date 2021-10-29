@@ -44,6 +44,11 @@ namespace Business.Concrete
             return _blogDal.GetBlogListWithCategory();
         }
 
+        public List<Blog> GetLastThereeBlog()
+        {
+            return _blogDal.GetAll().Take(3).ToList();
+        }
+
         public Blog GetById(int id)
         {
             return _blogDal.Get(b => b.BlogId == id);
