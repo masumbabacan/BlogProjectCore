@@ -26,6 +26,12 @@ namespace BlogProjectCore.Controllers
             var getBlog = blogManager.GetById(id);
             return View(getBlog);
         }
+
+        public IActionResult BlogListByWriter(int id)
+        {
+            var getBlogsByWriter = blogManager.GetBlogByWriter(2);
+            return View(getBlogsByWriter);
+        }
     }
 }
 
