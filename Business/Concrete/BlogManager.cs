@@ -21,6 +21,8 @@ namespace Business.Concrete
 
         public void Add(Blog entity)
         {
+            entity.BlogStatus = true;
+            entity.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             _blogDal.Add(entity);
         }
 
@@ -57,6 +59,11 @@ namespace Business.Concrete
         public void Update(Blog entity)
         {
             _blogDal.Update(entity);
+        }
+
+        public List<Blog> GetBlogListWithCategoryByWriter(int id)
+        {
+            return _blogDal.GetBlogListWithCategoryByWriter(id);
         }
     }
 }

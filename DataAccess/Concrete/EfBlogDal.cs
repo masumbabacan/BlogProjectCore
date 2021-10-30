@@ -19,5 +19,13 @@ namespace DataAccess.Concrete
                 return context.Blogs.Include(x => x.Category).ToList();
             }
         }
+
+        public List<Blog> GetBlogListWithCategoryByWriter(int id)
+        {
+            using (Context context = new Context())
+            {
+                return context.Blogs.Include(x => x.Category).Where(x=>x.WriterId == id).ToList();
+            }
+        }
     }
 }

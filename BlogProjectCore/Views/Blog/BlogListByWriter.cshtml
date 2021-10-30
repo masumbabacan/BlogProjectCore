@@ -31,24 +31,28 @@
                             <td> @item.BlogId </td>
                             <td> @item.BlogTitle </td>
                             <td>
-                                @item.CategoryId
+                                @item.Category.CategoryName
                             </td>
                             <td> @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy")) </td>
 
                             @if (item.BlogStatus == true)
                             {
-                                <td><label class="badge badge-success">@item.BlogStatus</label></td>
+                                <td><label class="badge badge-success">Aktif</label></td>
                             }
                             else
                             {
-                                <td><label class="badge badge-danger">@item.BlogStatus</label></td>
+                                <td><label class="badge badge-danger">Pasif</label></td>
                             }
 
+                        <td>
+                            <button type="button" class="btn btn-sm btn-gradient-light btn-icon-text">Güncelle 
+                            <i class="mdi mdi-file-check btn-icon-append"></i>
+                            </button>
+                        </td>
                             <td>
-                                <button type="submit" class="btn btn-sm btn-gradient-primary mr-2">Güncelle</button>
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-sm btn-gradient-danger mr-2">Sil</button>
+                                <button type="submit" class="btn btn-sm btn-gradient-danger mr-2">Sil 
+                                <i class="mdi mdi-delete-empty btn-icon-text"></i>
+                                </button>
                             </td>
                         </tr>
                     }
