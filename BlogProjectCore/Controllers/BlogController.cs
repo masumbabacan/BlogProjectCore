@@ -20,7 +20,7 @@ namespace BlogProjectCore.Controllers
         BlogManager blogManager = new BlogManager(new EfBlogDal());
         BlogValidator blogValidator = new BlogValidator();
         [AllowAnonymous]
-        public IActionResult BlogGetAllList()
+        public IActionResult BlogGetAllList() 
         {
             var getAllBlogs = blogManager.GetBlogListWithCategory();
             return View(getAllBlogs);
