@@ -71,6 +71,19 @@ namespace BlogProjectCore.Controllers
             }
             return View();
         }
+
+
+        [HttpGet]
+        public IActionResult BlogUpdate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult BlogUpdate(Blog blog)
+        {
+            return View();
+        }
     }
 }
 
