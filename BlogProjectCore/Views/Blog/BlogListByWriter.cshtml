@@ -45,7 +45,8 @@
                             }
 
                         <td>
-                            <button type="button" class="btn btn-sm btn-gradient-light btn-icon-text">Güncelle 
+
+                            <button onClick="location.href = '/Blog/BlogUpdate/@item.BlogId'" type="button" class="btn btn-sm btn-gradient-light btn-icon-text">Güncelle 
                             <i class="mdi mdi-file-check btn-icon-append"></i>
                             </button>
                         </td>
@@ -59,7 +60,7 @@
                 </tbody>
             </table>
             <br />
-            <button type="submit" class="btn btn-sm btn-gradient-success mr-2"> <i class="mdi mdi-plus-box menu-icon"></i> Yeni Blog</button>
+            <button onClick="location.href = '/Blog/BlogAdd'" type="submit" class="btn btn-sm btn-gradient-success mr-2"> <i class="mdi mdi-plus-box menu-icon"></i> Yeni Blog</button>
         </div>
     </div>
 </div>

@@ -9,25 +9,45 @@
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Blog Başlığı </h4>
+                <div>
+                    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                        <i class="mdi mdi-format-title"></i>
+                    </span> Blog Başlığı
+                </div>
+                <br />
                 @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control", @placeholder = "Başlık" })
                 @Html.ValidationMessageFor(x => x.BlogTitle, "", new { @class = "text-danger", @style = "font-size:12px" })
                 <br />
-                <h4 class="card-title">Blog İçeriği </h4>
+                <div>
+                    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                        <i class="mdi mdi-content-duplicate"></i>
+                    </span> Blog İçeriği
+                </div>
+                <br />
                 @Html.TextAreaFor(x => x.BlogContent, new { @class = "form-control", @style = "height:300px", @placeholder = "İçerik" })
                 @Html.ValidationMessageFor(x => x.BlogContent, "", new { @class = "text-danger", @style = "font-size:12px" })
                 <br />
-                <h4 class="card-title">Blog Görseli </h4>
+                <div>
+                    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                        <i class="mdi mdi-image"></i>
+                    </span> Blog Resmi
+                </div>
+                <br />
                 @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control", @placeholder = "Görsel" })
                 @Html.ValidationMessageFor(x => x.BlogImage, "", new { @class = "text-danger", @style = "font-size:12px" })
 
                 <br />
-                <h4 class="card-title">Kategori </h4>
-                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categories, new { @class = "form-control"})
+                <div>
+                    <span class="page-title-icon bg-gradient-primary text-white mr-lg-3">
+                        <i class="mdi mdi-table-column-plus-after"></i>
+                    </span> Blog Kategori
+                </div>
+                <br />
+                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categories, new { @class = "form-control" })
 
                 <br />
                 <br />
-                <button class="btn btn-gradient-danger btn-icon-text">
+                <button class="btn btn-gradient-primary btn-icon-text">
                     <i class="mdi mdi-upload btn-icon-prepend"></i> Yayınla
                 </button>
             </div>

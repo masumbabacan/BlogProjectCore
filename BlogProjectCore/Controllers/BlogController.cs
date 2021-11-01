@@ -74,15 +74,30 @@ namespace BlogProjectCore.Controllers
 
 
         [HttpGet]
-        public IActionResult BlogUpdate()
+        public IActionResult BlogUpdate(int id)
         {
-            return View();
+            var blogId = blogManager.GetById(id);
+
+            List<SelectListItem> categoryvalues = (from x in categoryManager.GetAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryId.ToString()
+                                                   }).ToList();
+            ViewBag.categoriess = categoryvalues;
+            return View(blogId);
         }
 
         [HttpPost]
         public IActionResult BlogUpdate(Blog blog)
         {
-            return View();
+            var blogId = blogManager.GetById(blog.BlogId); //O anki blogu çağırır
+
+            blog.BlogCreateDate = blogId.BlogCreateDate; //tarih ve status kısmına o anki blogun verilerini atar ve öyle kaydeder.
+            blog.BlogStatus = blogId.BlogStatus;
+            blog.WriterId = 2;
+            blogManager.Update(blog);
+            return RedirectToAction("BlogListByWriter");
         }
     }
 }

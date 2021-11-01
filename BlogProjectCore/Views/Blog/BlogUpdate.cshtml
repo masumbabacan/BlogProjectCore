@@ -1,0 +1,120 @@
+﻿@model Entities.Concrete.Blog
+@{
+    ViewData["Title"] = "BlogUpdate";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+@using (Html.BeginForm("BlogUpdate", "Blog", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="page-title">
+                        <span class="page-title-icon bg-gradient-danger text-white mr-2">
+                            <i class="mdi mdi-table-edit"></i>
+                        </span> Blogu Düzenle
+                    </h3>
+                    <br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="page-title-icon bg-gradient-danger text-white mr-2">
+                                        <i class="mdi mdi-key"></i>
+                                    </span> Blog Id
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.TextBoxFor(x => x.BlogId, new { @class = "form-control" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="page-title-icon bg-gradient-danger text-white mr-2">
+                                        <i class="mdi mdi-format-title"></i>
+                                    </span> Blog Başlığı
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="page-title-icon bg-gradient-danger text-white mr-2">
+                                        <i class="mdi mdi-image-area"></i>
+                                    </span> Blog Küçük Resim
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.TextBoxFor(x => x.BlogThumbnailImage, new { @class = "form-control" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="page-title-icon bg-gradient-danger text-white mr-2">
+                                        <i class="mdi mdi-image"></i>
+                                    </span> Blog Resmi
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="page-title-icon bg-gradient-danger text-white mr-2">
+                                        <i class="mdi mdi-table-column-plus-after"></i>
+                                    </span> Blog Kategori
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categoriess, new { @class = "form-control" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="page-title-icon bg-gradient-danger text-white mr-2">
+                                        <i class="mdi mdi-content-duplicate"></i>
+                                    </span> Blog İçeriği
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.TextAreaFor(x => x.BlogContent, new { @class = "form-control", @style = "height:300px", @placeholder = "İçerik" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-gradient-danger btn-icon-text">Güncelle <i class="mdi mdi-file-check btn-icon-append"></i></button>
+            </div>
+        </div>
+    </div>
+}
