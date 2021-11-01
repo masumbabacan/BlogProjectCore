@@ -1,4 +1,5 @@
-﻿
+﻿@using Entities.Concrete
+@model List<Blog>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/WriterLayout.cshtml";
@@ -13,16 +14,6 @@
     <meta name="keywords" content="Weblog a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <link href="~/CoreBlogTema/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="~/CoreBlogTema/css/single.css">
     <link href="~/CoreBlogTema/css/style.css" rel='stylesheet' type='text/css' />
     <link href="~/CoreBlogTema/css/fontawesome-all.css" rel="stylesheet">
@@ -35,60 +26,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
-            </span> Dashboard
+            </span> Anasayfa
         </h3>
-        <nav aria-label="breadcrumb">
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                </li>
-            </ul>
-        </nav>
     </div>
-    <section class="main-content-w3layouts-agileits">
         <div class="container">
-            <h3 class="tittle">Blog Posts</h3>
             <div class="inner-sec">
                 <!--left-->
                 <div class="left-blog-info-w3layouts-agileits text-left">
                     <div class="row">
-                        <div class="col-lg-4 card">
-                            <a href="single.html">
-                                <img src="~/CoreBlogTema/images/7.jpg" class="card-img-top img-fluid" alt="">
-                            </a>
-                            <div class="card-body">
-                                <ul class="blog-icons my-4">
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-calendar-alt"></i> Feb 20 .2018
-                                        </a>
-                                    </li>
-                                    <li class="mx-2">
-                                        <a href="#">
-                                            <i class="far fa-comment"></i> 21
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-eye"></i> 2000
-                                        </a>
-                                    </li>
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-4 card">
 
-                                </ul>
-                                <h5 class="card-title">
-                                    <a href="single.html">Blog Post Title</a>
-                                </h5>
-                                <p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt.. </p>
-                                <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                                <a href="/Blog/BlogDetails/@item.BlogId">
+                                    <img src="~/CoreBlogTema/images/7.jpg" class="card-img-top img-fluid" alt="">
+                                </a>
+                                <div class="card-body">
+                                    <ul class="blog-icons my-4">
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-calendar-alt"></i> @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
+                                            </a>
+                                        </li>
+                                        <li class="mx-2">
+                                            <a href="#">
+                                                <i class="far fa-comment"></i> 0
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fas fa-certificate"></i> @item.Category.CategoryName
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                    <h5 class="card-title">
+                                        <a href="/Blog/BlogDetails/@item.BlogId">@item.BlogTitle</a>
+                                    </h5>
+                                    <p class="card-text mb-3">@item.BlogContent.Substring(0, item.BlogContent.Substring(0, 130).LastIndexOf(" ")) ... <em>devamını oku</em> </p>
+                                    <a href="/Blog/BlogDetails/@item.BlogId" class="btn btn-primary read-m">Devamını Oku</a>
+                                </div>
                             </div>
-                        </div>
+
+                        }
                     </div>
-                    <!--//left-->
                 </div>
             </div>
         </div>
-    </section>
-    <script src="~/writer/assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="~/writer/assets/vendors/chart.js/Chart.min.js"></script>
     <script src="~/writer/assets/js/off-canvas.js"></script>
     <script src="~/writer/assets/js/hoverable-collapse.js"></script>
@@ -96,16 +81,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="~/writer/assets/js/dashboard.js"></script>
     <script src="~/writer/assets/js/todolist.js"></script>
 
-    <script src="~/CoreBlogTema/js/jquery-2.2.3.min.js"></script>
-    <!-- //js -->
-    <!--/ start-smoth-scrolling -->
-    <script src="~/CoreBlogTema/js/move-top.js"></script>
-    <script src="~/CoreBlogTema/js/easing.js"></script>
-    <a href="#home" class="scroll" id="toTop" style="display: block;">
-        <span id="toTopHover" style="opacity: 1;"> </span>
-    </a>
-
-    <!-- //Custom-JavaScript-File-Links -->
-    <script src="~/CoreBlogTema/js/bootstrap.js"></script>
 </body>
 </html>

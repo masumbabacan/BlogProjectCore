@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Concrete;
+using DataAccess.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,11 @@ namespace BlogProjectCore.Controllers
 {
     public class DashboardController : Controller
     {
+        BlogManager blogManager = new BlogManager(new EfBlogDal());
         public IActionResult Index()
         {
-            return View();
+            var getAllBlogs = blogManager.GetBlogListWithCategory();
+            return View(getAllBlogs);
         }
     }
 }
