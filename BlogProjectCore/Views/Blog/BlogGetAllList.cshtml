@@ -14,10 +14,10 @@
                 <div class="row">
                     @foreach (var item in Model)
                     {
-                        <div class="col-lg-4 card">
+                        <div class="col-lg-4 card" style="margin-top:5%">
 
                             <a href="/Blog/BlogDetails/@item.BlogId">
-                                <img src="~/CoreBlogTema/images/7.jpg" class="card-img-top img-fluid" alt="">
+                                <img src="@item.BlogImage" style="height:400px;" class="card-img-top img-fluid" alt="">
                             </a>
                             <div class="card-body">
                                 <ul class="blog-icons my-4">

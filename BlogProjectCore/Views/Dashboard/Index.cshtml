@@ -24,7 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <div class="page-header">
         <h3 class="page-title">
-            <span class="page-title-icon bg-gradient-primary text-white mr-2">
+            <span class="page-title-icon bg-gradient-success text-white mr-2">
                 <i class="mdi mdi-home"></i>
             </span> Anasayfa
         </h3>
@@ -36,10 +36,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="row">
                         @foreach (var item in Model)
                         {
-                            <div class="col-lg-5 card" style="margin-left:auto; margin-right:auto;">
+                            <div class="col-lg-5 card" style="margin-left:auto; margin-right:auto; margin-top:5%">
 
                                 <a href="/Dashboard/BlogDetailsDashboard/@item.BlogId">
-                                    <img src="~/CoreBlogTema/images/7.jpg" class="card-img-top img-fluid" alt="">
+                                    <img src="@item.BlogImage" style="height:400px" class="card-img-top img-fluid" alt="">
                                 </a>
                                 <div class="card-body">
                                     <ul class="blog-icons my-4">
@@ -64,8 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <h5 class="card-title">
                                         <a href="/Dashboard/BlogDetailsDashboard/@item.BlogId">@item.BlogTitle</a>
                                     </h5>
-                                    <p class="card-text mb-3">@item.BlogContent.Substring(0, item.BlogContent.Substring(0, 130).LastIndexOf(" ")) ... <em>devamını oku</em> </p>
-                                    <a href="/Dashboard/BlogDetailsDashboard/@item.BlogId" class="btn btn-primary read-m">Devamını Oku</a>
+                                    <a href="/Dashboard/BlogDetailsDashboard/@item.BlogId" style="width:100%" class="btn btn-gradient-success btn-icon-text">Oku <i class="mdi mdi-book-search btn-icon-append"></i></a>
                                 </div>
                             </div>
                         }
