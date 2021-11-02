@@ -36,9 +36,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="row">
                         @foreach (var item in Model)
                         {
-                            <div class="col-lg-4 card">
+                            <div class="col-lg-5 card" style="margin-left:auto; margin-right:auto;">
 
-                                <a href="/Blog/BlogDetails/@item.BlogId">
+                                <a href="/Dashboard/BlogDetailsDashboard/@item.BlogId">
                                     <img src="~/CoreBlogTema/images/7.jpg" class="card-img-top img-fluid" alt="">
                                 </a>
                                 <div class="card-body">
@@ -62,13 +62,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     </ul>
                                     <h5 class="card-title">
-                                        <a href="/Blog/BlogDetails/@item.BlogId">@item.BlogTitle</a>
+                                        <a href="/Dashboard/BlogDetailsDashboard/@item.BlogId">@item.BlogTitle</a>
                                     </h5>
                                     <p class="card-text mb-3">@item.BlogContent.Substring(0, item.BlogContent.Substring(0, 130).LastIndexOf(" ")) ... <em>devamını oku</em> </p>
-                                    <a href="/Blog/BlogDetails/@item.BlogId" class="btn btn-primary read-m">Devamını Oku</a>
+                                    <a href="/Dashboard/BlogDetailsDashboard/@item.BlogId" class="btn btn-primary read-m">Devamını Oku</a>
                                 </div>
                             </div>
-
                         }
                     </div>
                 </div>

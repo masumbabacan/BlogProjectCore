@@ -16,5 +16,12 @@ namespace BlogProjectCore.Controllers
             var getAllBlogs = blogManager.GetBlogListWithCategory();
             return View(getAllBlogs);
         }
+
+        public IActionResult BlogDetailsDashboard(int id)
+        {
+            ViewBag.id = id;
+            var getBlog = blogManager.GetById(id);
+            return View(getBlog);
+        }
     }
 }
