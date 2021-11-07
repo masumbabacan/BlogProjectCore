@@ -4,8 +4,152 @@
     Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
 
-@using (Html.BeginForm("WriterProfile", "Writer", FormMethod.Post))
-{
+<html>
+<head>
+    <style>
+        body {
+            margin-top: 20px;
+            color: white;
+            background: #FFFFFF;
+        }
+
+        .account-settings .user-profile {
+            margin: 0 0 1rem 0;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+
+            .account-settings .user-profile .user-avatar {
+                margin: 0 0 1rem 0;
+            }
+
+                .account-settings .user-profile .user-avatar img {
+                    width: 90px;
+                    height: 90px;
+                    -webkit-border-radius: 100px;
+                    -moz-border-radius: 100px;
+                    border-radius: 100px;
+                }
+
+            .account-settings .user-profile h5.user-name {
+                margin: 0 0 0.5rem 0;
+            }
+
+            .account-settings .user-profile h6.user-email {
+                margin: 0;
+                font-size: 0.8rem;
+                font-weight: 400;
+            }
+
+        .account-settings .about {
+            margin: 1rem 0 0 0;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .card {
+            background: #272E48;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            border: 0;
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            border: 1px solid #1A233A;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            font-size: .825rem;
+            background: #1A233A;
+            color: #bcd0f7;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("WriterProfile", "Writer", FormMethod.Post))
+    {
+        <div class="container">
+            <div class="row gutters">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="account-settings">
+                                <div class="user-profile">
+                                    <div class="user-avatar">
+                                        <img src="@Model.WriterImage" alt="Maxwell Admin">
+                                    </div>
+                                    <h5 class="user-name">@Model.WriterName</h5>
+                                    <h6 class="user-email">@Model.WriterMail</h6>
+                                </div>
+                                <div class="about">
+                                    <h5 class="mb-2 text-primary">Hakkımda</h5>
+                                    <p>@Model.WriterAbout</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-3 text-primary">Bilgileri Güncelle</h6>
+                                </div>
+                                @Html.HiddenFor(x => x.WriterId)
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label  for="fullName">Ad-Soyad</label>
+                                        <input asp-for="WriterName" type="text" class="form-control" id="fullName" placeholder="Ad-Soyad">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Email</label>
+                                        <input asp-for="WriterMail" type="email" class="form-control" id="eMail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Şifre</label>
+                                        <input asp-for="WriterPassword" type="text" class="form-control" id="eMail" placeholder="Şifre">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="website">Resim Url</label>
+                                        <input asp-for="WriterImage" class="form-control" id="website" placeholder="Url">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextarea1">Hakkımda</label>
+                                <textarea asp-for="WriterAbout" class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+                                        <button class="btn btn-gradient-danger">İptal</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+@*<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
@@ -13,7 +157,7 @@
             <br />
             <form class="forms-sample">
                 <div class="form-group">
-                    @Html.HiddenFor(x=>x.WriterId)
+                    @Html.HiddenFor(x => x.WriterId)
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Ad-Soyad</label>
@@ -46,6 +190,4 @@
             </form>
         </div>
     </div>
-</div>
-
-}
+</div>*@
