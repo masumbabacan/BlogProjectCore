@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Concrete;
+using DataAccess.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,12 @@ namespace BlogProjectCore.ViewComponents.Writer
 {
     public class WriterMessageNotification : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
+        public IViewComponentResult Invoke(string email)
         {
-            return View();
+            email = "masum@gmail.com";
+            var messageList = messageManager.GetInBoxListByWriter(email);
+            return View(messageList);
         }
     }
 }
