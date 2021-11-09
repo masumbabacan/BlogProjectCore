@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Concrete;
+using DataAccess.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,11 @@ namespace BlogProjectCore.ViewComponents.Writer
 {
     public class WriterNotification : ViewComponent
     {
+        NotificationManager notificationManager = new NotificationManager(new EfNotificationDal());
         public IViewComponentResult Invoke()
         {
-            return View();
+            var notificationList = notificationManager.GetAll();
+            return View(notificationList);
         }
     }
 }

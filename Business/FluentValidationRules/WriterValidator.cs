@@ -12,6 +12,8 @@ namespace Business.FluentValidationRules
     {
         public WriterValidator()
         {
+
+
             RuleFor(x => x.WriterName).NotEmpty().WithMessage("BU ALAN BOŞ GEÇİLEMEZ");
             RuleFor(x => x.WriterMail).NotEmpty().WithMessage("BU ALAN BOŞ GEÇİLEMEZ");
             RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("BU ALAN BOŞ GEÇİLEMEZ");
@@ -23,6 +25,14 @@ namespace Business.FluentValidationRules
             RuleFor(x => x.WriterName).MinimumLength(2).WithMessage("En az 2 karakter girişi yapabilirsiniz");
             RuleFor(x => x.WriterMail).MinimumLength(2).WithMessage("En az 2 karakter girişi yapabilirsiniz");
             RuleFor(x => x.WriterPassword).MinimumLength(6).WithMessage("Şifreniz en az 6 karakterden oluşmalıdır");
+
+            RuleFor(x => x).Custom((x, context) =>
+              {
+                  if (x.WriterPassword != x.WriterConfirmPassword)
+                  {
+                      context.AddFailure(nameof(x.WriterPassword), "Şifreler Aynı Değil");
+                  }
+              });
 
         }
     }
