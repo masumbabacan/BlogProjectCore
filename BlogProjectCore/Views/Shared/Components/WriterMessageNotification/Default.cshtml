@@ -7,20 +7,17 @@
 
     @foreach (var item in Model)
     {
-        <a class="dropdown-item preview-item">
-            <div class="preview-thumbnail">
-                <img src="~/writer/assets/images/faces/face20.jpg" alt="image" class="profile-pic">
-            </div>
-            <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject ellipsis mb-1">@item.Subject</h6>
-                <h6 class="preview-subject ellipsis mb-1 font-weight-normal">@item.MessageDetails</h6>
-                <p class="text-gray mb-0">3 dakika önce</p>
-            </div>
-        </a>
+<a class="dropdown-item preview-item">
+    <div class="preview-thumbnail">
+        <img src="~/writer/assets/images/faces/face20.jpg" alt="image" class="profile-pic">
+    </div>
+    <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+        <h6 class="preview-subject ellipsis mb-1  font-weight-normal"><b>@item.Sender</b> sana bir mesaj gönderdi</h6>
+        <h6 class="preview-subject ellipsis mb-1 font-weight-normal"><b>@item.MessageDetails</b></h6>
+        <p class="text-gray mb-0">@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</p>
+    </div>
+</a>
     }
-
-
-
     <div class="dropdown-divider"></div>
     <h6 class="p-3 mb-0 text-center">Mesajlar Listesi</h6>
 </div>
